@@ -9,12 +9,12 @@
   - wget
 - name: Download Oh-My-ZSH
   get_url:
-    dest: /tmp/oh-my-zsh-install.sh
+    dest: ~/oh-my-zsh-install.sh
     url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
     mode: '0660'
   become: yes
   become_user: "{{ target_user }}"
 - name: Install Oh-My-ZSH
-  command: bash /tmp/oh-my-zsh-install.sh
+  command: bash ~/oh-my-zsh-install.sh
   become: yes
   become_user: "{{ target_user }}"
