@@ -27,9 +27,10 @@
   git:
     dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     repo: https://github.com/zsh-users/zsh-autosuggestions
-- template:
-  src: /templates/zsh-template.j2
-  dest: $HOME/.zshrc
-  owner: "{{ target_user }}"
-  group: "{{ target_user }}"
-  mode: '0660'
+- name: template zshrc
+  template:
+    src: /templates/zsh-template.j2
+    dest: $HOME/.zshrc
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: '0660'
