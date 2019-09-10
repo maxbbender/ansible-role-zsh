@@ -1,2 +1,10 @@
 ---
 target_user: bender
+plugins:
+- git
+- docker
+- zsh-autosuggestions
+- gem
+- rvm
+- pyenv
+- ansible

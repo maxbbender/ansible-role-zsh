@@ -11,13 +11,25 @@
   get_url:
     dest: ~/oh-my-zsh-install.sh
     url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-    mode: '0660'
+    mode: '0550'
+    force: true
   become: yes
   become_user: "{{ target_user }}"
 - name: Install Oh-My-ZSH
   command: bash ~/oh-my-zsh-install.sh
   become: yes
   become_user: "{{ target_user }}"
+  ignore_errors: true
 - name: Set Shell to ZSH
   command: chsh -s /usr/bin/zsh {{ target_user }}
   become: yes
+- name: Get ZSH Auto Suggestions
+  git:
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+- template:
+  src: /templates/zsh-template.j2
+  dest: $HOME/.zshrc
+  owner: "{{ target_user }}"
+  group: "{{ target_user }}"
+  mode: '0660'
