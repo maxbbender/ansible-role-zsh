@@ -4,7 +4,9 @@ plugins:
 - git
 - docker
 - zsh-autosuggestions
+- zsh-syntax-highlighting
 - gem
 - rvm
 - pyenv
 - ansible
+- history

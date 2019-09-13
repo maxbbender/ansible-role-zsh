@@ -11,7 +11,7 @@
   get_url:
     dest: ~/oh-my-zsh-install.sh
     url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-    mode: '0550'
+    mode: '0751'
     force: true
   become: yes
   become_user: "{{ target_user }}"
@@ -27,6 +27,10 @@
   git:
     dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     repo: https://github.com/zsh-users/zsh-autosuggestions
+- name: Get ZSH Syntax Highlighting
+  git:
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
 - name: template zshrc
   template:
     src: /templates/zsh-template.j2
