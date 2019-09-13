@@ -27,12 +27,19 @@
   git:
     dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     repo: https://github.com/zsh-users/zsh-autosuggestions
-    mode: '0660'
 - name: Get ZSH Syntax Highlighting
   git:
     dest: $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+- name: Update directory permissions
+  file:
+    path: "{{ item }}"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
     mode: '0660'
+  loop:
+  - $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  - $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 - name: template zshrc
   template:
     src: ../templates/zsh-template.j2
