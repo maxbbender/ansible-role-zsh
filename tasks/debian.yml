@@ -27,10 +27,12 @@
   git:
     dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     repo: https://github.com/zsh-users/zsh-autosuggestions
+    mode: '0660'
 - name: Get ZSH Syntax Highlighting
   git:
     dest: $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    mode: '0660'
 - name: template zshrc
   template:
     src: ../templates/zsh-template.j2
