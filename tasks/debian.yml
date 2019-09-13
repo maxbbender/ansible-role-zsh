@@ -33,7 +33,7 @@
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
 - name: template zshrc
   template:
-    src: /templates/zsh-template.j2
+    src: ../templates/zsh-template.j2
     dest: $HOME/.zshrc
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
