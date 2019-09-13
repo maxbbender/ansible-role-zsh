@@ -36,7 +36,7 @@
     path: "{{ item }}"
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
-    mode: '0660'
+    mode: '0770'
   loop:
   - $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   - $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
